@@ -31,32 +31,52 @@ namespace MoviePediaCore.Data
 
         public Movie GetById(int id)
         {
-            throw new NotImplementedException();
+            return movies.SingleOrDefault(m => m.Id == id);
         }
 
-        public IEnumerable<Movie> GetMoviesByName(string name)
+        public IEnumerable<Movie> GetMoviesByName(string name = null)
         {
-            throw new NotImplementedException();
+            return from m in movies
+                   where string.IsNullOrEmpty(name) || m.Name.StartsWith(name)
+                   orderby m.Name
+                   select m;
         }
 
         public Movie Add(Movie newMovie)
         {
-            throw new NotImplementedException();
+            movies.Add(newMovie);
+            newMovie.Id = movies.Max(m => m.Id) + 1;
+            return newMovie;
         }
 
         public Movie Update(Movie updatedMovie)
         {
-            throw new NotImplementedException();
+            var movie = movies.SingleOrDefault(m => m.Id == updatedMovie.Id);
+
+            if (movie != null)
+            {
+                movie.Name = updatedMovie.Name;
+                movie.YearOfRelease = updatedMovie.YearOfRelease;
+                movie.Description = updatedMovie.Description;
+                movie.MovieGenre = updatedMovie.MovieGenre;
+            }
+
+            return updatedMovie;
         }
 
         public Movie Delete(int id)
         {
-            throw new NotImplementedException();
+            var movie = movies.FirstOrDefault(m => m.Id == id);
+
+            if (movie != null)
+                movies.Remove(movie);
+
+            return null;
         }
 
         public int Commit()
         {
-            throw new NotImplementedException();
+            return 0;
         }
     }
 }

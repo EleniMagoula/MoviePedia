@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviePediaCore", "MoviePediaCore\MoviePediaCore.csproj", "{023B8AAE-049A-4118-993F-72E29ED9F1CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoviePediaCore", "MoviePediaCore\MoviePediaCore.csproj", "{023B8AAE-049A-4118-993F-72E29ED9F1CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviePediaCore.Core", "MoviePediaCore.Core\MoviePediaCore.Core.csproj", "{7F6ABB39-AC0F-4A6B-B954-183BECB1E436}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoviePediaCore.Core", "MoviePediaCore.Core\MoviePediaCore.Core.csproj", "{7F6ABB39-AC0F-4A6B-B954-183BECB1E436}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviePediaCore.Data", "MoviePediaCore.Data\MoviePediaCore.Data.csproj", "{7020E363-8542-4080-95B2-14CECEA52A81}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoviePediaCore.Data", "MoviePediaCore.Data\MoviePediaCore.Data.csproj", "{7020E363-8542-4080-95B2-14CECEA52A81}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

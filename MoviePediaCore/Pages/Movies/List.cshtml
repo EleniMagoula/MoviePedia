@@ -1,0 +1,42 @@
+﻿@page
+@model MoviePediaCore.Pages.Movies.ListModel
+@{
+}
+
+<h2>Movies</h2>
+
+<form>
+    <div class="form-group">
+        <div class="input-group">
+            <input type="search" class="form-control" asp-for="SearchTerm" />
+        </div>
+        <span>
+            <button class="btn btn-secondary" type="button">
+                <i class="fa fa-search"></i>
+            </button>
+        </span>
+    </div>
+</form>
+
+<table class="table table-bordered">
+    @foreach (var movie in Model.Movies)
+    {
+        <tr>
+            <td>@movie.Name</td>
+            <td>@movie.YearOfRelease</td>
+            <td>@movie.Description</td>
+            <td>@movie.MovieGenre</td>
+            <td>
+                <a class="btn btn-lg" asp-page="./Detail" asp-route-movieId="@movie.Id">
+                    <i class="fa fa-info-circle"></i>
+                </a>
+                <a class="btn btn-lg" asp-page="./Edit" asp-route-movieId="@movie.Id">
+                    <i class="fa fa-edit"></i>
+                </a>
+                <a class="btn btn-lg" asp-page="./Delete" asp-route-movieId="@movie.Id">
+                    <i class="fa fa-trash"></i>
+                </a>
+            </td>
+        </tr>
+    }
+</table>
