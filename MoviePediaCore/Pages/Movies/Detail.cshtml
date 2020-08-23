@@ -1,0 +1,21 @@
+﻿@page "{movieId:int}"
+@model MoviePediaCore.Pages.Movies.DetailModel
+@{
+}
+
+<h3>@Model.Movie.Name</h3>
+
+<div>
+    Id: @Model.Movie.Id
+</div>
+<div>
+    Year of Release: @Model.Movie.YearOfRelease
+</div>
+<div>
+    Description: @Model.Movie.Description
+</div>
+<div>
+    Genre: @Model.Movie.MovieGenre
+</div>
+
+<a asp-page="./List" class="btn btn-outline-primary">All Movies</a>
