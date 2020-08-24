@@ -14,18 +14,21 @@ namespace MoviePediaCore.Data
         {
             movies = new List<Movie>
             {
-                new Movie { Id = 1, Name = "Silence of the Lambs", Description = ".", YearOfRelease = 1991, MovieGenre = Genre.Thriller },
-                new Movie { Id = 2, Name = "Knives Out", Description = ".", YearOfRelease = 2019, MovieGenre = Genre.Crime },
-                new Movie { Id = 3, Name = "Sinister", Description = ".", YearOfRelease = 2012, MovieGenre = Genre.Horror },
-                new Movie { Id = 4, Name = "Spy", Description = ".", YearOfRelease = 2015, MovieGenre = Genre.Comedy },
-                new Movie { Id = 5, Name = "Taken", Description = ".", YearOfRelease = 2008, MovieGenre = Genre.Action }
+                new Movie { Id = 1, Title = "Silence of the Lambs", Description = "Lorem ipsum dolor sit amet, consectetur " +
+                "adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tempor nec feugiat nisl " +
+                "pretium fusce id velit ut tortor. Amet justo donec enim diam vulputate ut pharetra sit.",
+                    YearOfRelease = 1991, MovieGenre = Genre.Thriller },
+                new Movie { Id = 2, Title = "Knives Out", Description = ".", YearOfRelease = 2019, MovieGenre = Genre.Crime },
+                new Movie { Id = 3, Title = "Sinister", Description = ".", YearOfRelease = 2012, MovieGenre = Genre.Horror },
+                new Movie { Id = 4, Title = "Spy", Description = ".", YearOfRelease = 2015, MovieGenre = Genre.Comedy },
+                new Movie { Id = 5, Title = "Taken", Description = ".", YearOfRelease = 2008, MovieGenre = Genre.Action }
             };
         }
 
         public IEnumerable<Movie> GetAll()
         {
             return from m in movies
-                   orderby m.Name
+                   orderby m.Title
                    select m;
         }
 
@@ -34,11 +37,11 @@ namespace MoviePediaCore.Data
             return movies.SingleOrDefault(m => m.Id == id);
         }
 
-        public IEnumerable<Movie> GetMoviesByName(string name = null)
+        public IEnumerable<Movie> GetMoviesByName(string title = null)
         {
             return from m in movies
-                   where string.IsNullOrEmpty(name) || m.Name.StartsWith(name)
-                   orderby m.Name
+                   where string.IsNullOrEmpty(title) || m.Title.StartsWith(title)
+                   orderby m.Title
                    select m;
         }
 
@@ -55,7 +58,7 @@ namespace MoviePediaCore.Data
 
             if (movie != null)
             {
-                movie.Name = updatedMovie.Name;
+                movie.Title = updatedMovie.Title;
                 movie.YearOfRelease = updatedMovie.YearOfRelease;
                 movie.Description = updatedMovie.Description;
                 movie.MovieGenre = updatedMovie.MovieGenre;

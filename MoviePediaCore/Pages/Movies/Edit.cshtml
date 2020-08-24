@@ -1,0 +1,41 @@
+﻿@page "{movieId:int?}"
+@model MoviePediaCore.Pages.Movies.EditModel
+@{
+}
+
+<h1>Editing @Model.Movie.Title</h1>
+
+<form method="post">
+
+    <input type="hidden" asp-for="Movie.Id" />
+    <div class="form-group">
+        <label asp-for="Movie.Title"></label>
+        <input asp-for="Movie.Title" class="form-control" />
+        <span class="text-danger" asp-validation-for="Movie.Title"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Movie.YearOfRelease"></label>
+        <input asp-for="Movie.YearOfRelease" class="form-control" />
+        <span class="text-danger" asp-validation-for="Movie.YearOfRelease"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Movie.Description"></label>
+        <input asp-for="Movie.Description" class="form-control" />
+        <span class="text-danger" asp-validation-for="Movie.Description"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Movie.MovieGenre"></label>
+        <select class="form-control" asp-for="Movie.MovieGenre" asp-items="Model.Genres">
+        </select>
+        <span class="text-danger" asp-validation-for="Movie.MovieGenre"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
