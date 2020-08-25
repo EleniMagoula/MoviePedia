@@ -1,6 +1,7 @@
 ﻿@page "{movieId:int?}"
 @model MoviePediaCore.Pages.Movies.EditModel
 @{
+//ViewData["Title"] = "Edit";
 }
 
 <h1>Editing @Model.Movie.Title</h1>
@@ -34,6 +35,7 @@
     </div>
 
     <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-page="List" class="btn btn-outline-danger">Cancel</a>
 </form>
 
 @section Scripts {

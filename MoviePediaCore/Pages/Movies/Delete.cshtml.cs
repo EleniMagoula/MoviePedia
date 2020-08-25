@@ -9,25 +9,36 @@ using MoviePediaCore.Data;
 
 namespace MoviePediaCore.Pages.Movies
 {
-    public class DetailModel : PageModel
+    public class DeleteModel : PageModel
     {
         private readonly IMovieData _movieData;
 
         public Movie Movie { get; set; }
 
-        public DetailModel(IMovieData movieData)
+        public DeleteModel(IMovieData movieData)
         {
             _movieData = movieData;
         }
 
         public IActionResult OnGet(int movieId)
-        { 
+        {
             Movie = _movieData.GetById(movieId);
 
             if (Movie == null)
                 return RedirectToPage("./NotFound");
 
             return Page();
+        }
+
+        public IActionResult OnPost(int movieId)
+        {
+            Movie = _movieData.Delete(movieId);
+            _movieData.Commit();
+
+            if (Movie == null)
+                return RedirectToPage("./NotFound");
+
+            return RedirectToPage("./List");
         }
     }
 }

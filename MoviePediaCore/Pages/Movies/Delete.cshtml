@@ -1,0 +1,10 @@
+﻿@page "{movieId:int}"
+@model MoviePediaCore.Pages.Movies.DeleteModel
+@{
+}
+
+<div class="alert alert-danger">Are you sure you want to delete @Model.Movie.Title?</div>
+<form method="post">
+    <button type="submit" class="btn btn-danger">Yes!</button>
+    <a asp-page="List" class="btn btn-outline-primary">Cancel</a>
+</form>

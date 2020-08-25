@@ -74,7 +74,7 @@ namespace MoviePediaCore.Data
             if (movie != null)
                 movies.Remove(movie);
 
-            return null;
+            return movie;
         }
 
         public int Commit()
